@@ -5,8 +5,8 @@ import sqlite3
 class DataBase:
     def __init__(self, file_name):
         # self.connect = pyodbc.connect(conn_str)
-        # self.cursor = self.connect.cursor()
         self.connect = sqlite3.connect(file_name)
+        self.cursor = self.connect.cursor()
 
     def get_info(self):
         with self.connect:
@@ -37,7 +37,7 @@ class DataBase:
 
     def delete_user_right(self, user_id, username, num, role, password):
         with self.connect:
-            return self.cursor.execute("""DELETE FROM users_right WHERE user_id=(?) AND username=(?) AND user_last_name=(?) AND user_role=(?) AND user_password=(?)""",
+            return self.cursor.execute("""DELETE FROM users_right WHERE user_id=(?) AND username=(?) AND user_lastname=(?) AND user_role=(?) AND user_password=(?)""",
                                        (user_id, username, num, role, password))
 
     def send_to_left_table(self, user_id, username, user_lastname, user_role, user_password):

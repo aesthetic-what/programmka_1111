@@ -227,16 +227,14 @@ class EditDataWindow(QMainWindow):
         self.password_input.setText(val_user_password)
         self.user_id = val_user_id
         self.role = val_user_role
-        print(f"\nИмя пользователя: {
-              val_username},\n ID: {val_user_password}\n")
+        print(f"\nИмя пользователя: {val_username},\n ID: {val_user_password}\n")
 
     def edit_data(self):
         try:
             new_name = self.name_input.text()
             new_last_name = self.last_name_input.text()
             new_password = self.password_input.text()
-            print(f"\nusername: {new_name},\n last name: {
-                  new_last_name}\npassword: {new_password}")
+            print(f"\nusername: {new_name},\n last name: {new_last_name}\npassword: {new_password}")
             # добавление данных в БД
             self.db.update_user(self.user_id, new_name,
                                 new_last_name, new_password)
